@@ -28,11 +28,7 @@
                             <!-- END .top-nav -->
                             <a href="#" class="facebook-icon"><img class="facebook-button" src="<?php bloginfo('template_url'); ?>/images/facebook-btn.png" alt="facebook button"></a>
                             <div class="search-container">
-                                <form class="search-form" method="get" action="#">
-                                    <input class="search-input" type="text" onFocus="this.value=(this.value=='Search...')? '' : this.value ;" value="Search..." name="search">
-                                    <input class="search-submit" type="image" value="Search" src="<?php bloginfo('template_url'); ?>/images/search-btn.gif">
-                                </form>
-                                <!-- END .search-form -->
+                                <?php get_search_form(); ?>
                             </div>
                             <!-- END .search-container -->
                             <a href="#" class="donate" target="_blank">

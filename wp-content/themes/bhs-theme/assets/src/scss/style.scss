@@ -48,6 +48,12 @@ a:visited {
 body {
     position: relative;
     font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+}
+
+/* use the following to fix problem with background color not showing up in Google Chrome */
+body, html {
+    width: 100%;
+    height: 100%;
     background: #233e5f;
     background: -webkit-linear-gradient(bottom, #233e5f, #1c2836);
     background: linear-gradient(to top, #233e5f, #1c2836);
@@ -192,6 +198,26 @@ article h3 {
 article hr {
     margin-top: 0px;
     margin-bottom: 0px;
+}
+
+article.post {
+    margin: 20px 0 20px;
+    background-color: #e7e7e7;
+    padding: 15px;
+}
+
+article.post p {
+    padding-top: 0px;
+}
+
+article.post h2,
+h3#reply-title {
+    margin-left: 10px;
+}
+
+article.post img {
+    float: left;
+    margin: 0px 10px 10px 10px;
 }
 
 .aside-box p {
@@ -358,30 +384,9 @@ header .donate {
 
 header .logo {
     position: absolute;
-    top: -48px;
+    top: -300px;
     left: 10px;
     z-index: 99;
-    -webkit-animation: mymove 1.2s;
-    animation: mymove 1.2s;
-    animation-timing-function: ease;
-}
-
-@-webkit-keyframes mymove {
-    from {
-        top: -300px;
-    }
-    to {
-        bottom: 0px;
-    }
-}
-
-@keyframes mymove {
-    from {
-        top: -300px;
-    }
-    to {
-        bottom: 0px;
-    }
 }
 
 header {
@@ -402,24 +407,29 @@ header .donate {
     right: 0;
 }
 
-header .logo {
-    position: absolute;
-    top: -48px;
-    left: 10px;
-    z-index: 99;
-}
-
 .misc-items {
     height: 56px;
     background-color: #0c2745;
     position: relative;
 }
 
+.input-append {
+    position: relative;
+}
+
+button.icon {
+    position: absolute;
+    top: 1px;
+    left: 222px;
+    border-radius: 15px;
+    border: none;
+    background-color: transparent;
+}
+
 .search-container {
     position: absolute;
     top: 15px;
     left: 645px;
-    background: transparent url("images/search-box.png") no-repeat;
     width: 258px;
     height: 37px;
 }
@@ -438,6 +448,20 @@ header .logo {
 .search-container .search-submit {
     margin: 5px 0 0 10px;
     width: 25px;
+}
+
+.search-query {
+    background-color: #fff;
+    border-radius: 14px;
+    border: none;
+    padding: 4px;
+    padding-left: 10px;
+    padding-right: 82px;
+    margin-right: 5px;
+}
+
+.results {
+    margin-top: 20px;
 }
 
 .breadcrumb {
@@ -638,6 +662,28 @@ h2.success-stories-sidebar-heading {
     padding: 0px;
 }
 
+.sidebar {
+  margin-top: 20px;
+  width: 100%;
+  height: auto;
+  color: #444;
+  background-color: #e7e7e7;
+  padding: 25px;
+}
+
+div.widget h2 {
+    padding-top: 5px;
+}
+
+div.widget ul li a,
+.comment-author-link {
+  margin-left: -40px;
+}
+
+div.widget {
+    margin-bottom: 23px;
+}
+
 .bottom-donate-button {
     margin-bottom: 20px;
 }
@@ -707,27 +753,114 @@ h2.success-stories-sidebar-heading {
     overflow: hidden;
     clear: both;
 }
-@media (min-width: 768px) {
-    .sub-menu {
-        display: none;
-        position: absolute;
-        background: #e7e7e7;
-        padding: 10px 10px;
-        width: 150px;
-        z-index: 99;
-    }
-    .sub-menu a {
-        background-color: #e7e7e7;
-    }
-    li:hover .sub-menu {
-        display: block
-    }
-}
 
 .sub-menu li {
     margin-bottom: 10px;
     list-style: none;
 }
+
+.page-header {
+    margin: 20px 10px 30px;
+}
+
+/******* FORM *******/
+
+#frmContact {
+    padding: 30px 15px;
+}
+
+#frmContact label {
+    display: block;
+    color: #797979;
+    font-weight: 700;
+    line-height: 1.4em;
+}
+
+#frmContact input {
+    width: 220px;
+    padding: 6px;
+    color: #949494;
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-size: 11px;
+    border: 1px solid #cecece;
+}
+
+#frmContact input.error {
+    background: #ccc;
+    border-color: #333;
+}
+
+#frmContact textarea {
+    width: 550px;
+    height: 80px;
+    padding: 6px;
+    color: #adaeae;
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: 12px;
+    border: 1px solid #cecece;
+}
+
+#frmContact textarea.error {
+    background: #ccc;
+    border-color: #333;
+}
+
+#frmContact div {
+    margin-bottom: 15px;
+}
+
+#frmContact div span {
+    margin-left: 10px;
+    color: #b1b1b1;
+    font-size: 11px;
+    font-style: italic;
+}
+
+#frmContact div span.error {
+    color: #e46c6e;
+}
+
+#frmContact #send {
+    color: #000;
+    font-weight: 700;
+    font-style: normal;
+    border: 0;
+    cursor: pointer;
+    background-color: #ccc;
+}
+
+#frmContact #send:hover {
+    background: aqua;
+}
+
+/* error code */
+    #error {
+    margin-bottom: 0;
+    border: 1px solid #333;
+    margin-left: 10px;
+}
+
+#error ul {
+    list-style: square;
+    padding: 5px;
+    font-size: 11px;
+}
+
+#error ul li {
+    list-style-position: inside;
+    line-height: 1.6em;
+}
+
+#error ul li strong {
+    color: #e46c6d;
+}
+
+#error.valid ul li strong {
+    color: #ccc;
+    font-weight: bold;
+}
+/******* /FORM *******/
 
 /*=============================================
 =                Media Queries                =
@@ -777,6 +910,23 @@ h2.success-stories-sidebar-heading {
     .navbar-nav>li>a {
         width: 50%;
         margin: auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .sub-menu {
+        display: none;
+        position: absolute;
+        background: #e7e7e7;
+        padding: 10px 10px;
+        width: 150px;
+        z-index: 99;
+    }
+    .sub-menu a {
+        background-color: #e7e7e7;
+    }
+    li:hover .sub-menu {
+        display: block
     }
 }
 

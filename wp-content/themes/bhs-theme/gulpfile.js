@@ -76,7 +76,7 @@ gulp.task('browser-sync', function() {
 
         // Read here http://www.browsersync.io/docs/options/
 
-        proxy: 'http://localhost/wp-final',
+        proxy: 'http://bhs.dev/',
 
 
         port: 8080,

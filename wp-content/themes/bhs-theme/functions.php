@@ -20,6 +20,7 @@ function theme_js() {
     wp_enqueue_script( 'bootstrap_js', get_template_directory_uri() . '/node_modules/bootstrap/dist/js/bootstrap.min.js', array('jquery'), '', true );
     wp_enqueue_script( 'ie10_js', get_template_directory_uri() . '/js/ie10-viewport-bug-workaround.js', array('jquery'), '', true );
     wp_enqueue_script( 'scripts_js', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '', true );
+    wp_enqueue_script( 'theme_js', get_template_directory_uri() . '/js/theme.js', array('jquery', 'bootstrap_js'), '', true );
 }
 add_action( 'wp_enqueue_scripts', 'theme_js' );
 
@@ -37,5 +38,30 @@ function register_theme_menus() {
     );
 }
 add_action( 'init', 'register_theme_menus' );
+
+/*==========================================
+=            Add Featured Image            =
+==========================================*/
+
+add_theme_support( 'post-thumbnails' );
+
+/*===============================
+=            widgets            =
+===============================*/
+
+function create_widget($name, $id, $description) {
+    register_sidebar(array(
+      'name' => __( $name ),
+      'id'   => $id,
+      'description' => __( $description ),
+      'before_widget' => '<div class="widget">',
+      'after_widget' => '</div>',
+      'before_title' => '<h2>',
+      'after_title' => '</h2>'
+    ));
+}
+
+create_widget( 'Blog Sidebar', 'blog', 'Displays on side of pages in blog section');
+create_widget( 'Blog Links', 'links', 'Displays on side of pages in blog profile section');
 
 ?>

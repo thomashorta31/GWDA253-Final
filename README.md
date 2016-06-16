@@ -1,4 +1,4 @@
-# GWDA313 Emerging Technologies – Final Project
+# GWDA253 Authoring for Interaction Final Project
 
 ### Summary
 * The purpose of this group project was to create custom theme Wordpress site to show us how to use modern development tools and allow students to work in a team building enviorment to excersise there skills. 

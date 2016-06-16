@@ -73,4 +73,4 @@ $ npm install
 ```
 
 ### Screenshot
-![BHS screenshot](wp-content/themes/bhs-theme/misc/bhs_services.jpg?raw=true "Services page of BHS site")
+![BHS screenshot](https://i.imgur.com/hG611jo.png)
